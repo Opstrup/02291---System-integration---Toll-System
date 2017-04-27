@@ -1,0 +1,44 @@
+\subsubsection*{Show report}
+
+\begin{table}[H]
+    \begin{tabular}{| p{3cm}| p{11.5cm}|}
+        \hline
+        
+        Description             & The station manager wants to see statistical reports from the station client. \\\hline
+        Actors                  & Station Manager \\\hline
+        Pre conditions          & Sign in use case done. \\\hline
+        
+        Main Scenarios	        &
+         
+        \renewcommand{\labelenumi}{\arabic{enumi}.}
+        \renewcommand{\labelenumii}{\Roman{enumii}:}
+        
+        \begin{enumerate}[a:, topsep=0.0cm, leftmargin=0.5cm]
+            \item The station manager navigates to the report section in the client.
+            \item The station manager fills out the query conditions for the report.
+            \item The station manager requests a report.
+            \begin{enumerate}[partopsep=4cm, topsep=0cm, leftmargin=1cm]
+                \item Not all the required information is filled out.
+        	\end{enumerate}
+        	\item A report of the given period is displayed.
+        \end{enumerate} \\\hline	
+        
+        Alternative Scenarios     & 
+        
+        \renewcommand{\labelenumi}{\Roman{enumi}:}
+        \renewcommand{\labelenumii}{\alph{enumii})}
+        
+        \begin{enumerate}[a:, topsep=0.0cm,leftmargin=0.5cm]
+            \item Not all the required information is filled out.
+        	\begin{itemize}[topsep=0cm, leftmargin=1cm]
+        	    \item The station client displays an error message.
+        	\end{itemize}
+        \end{enumerate} \\\hline
+        
+        Post conditions         & The station client displays the requested report. \\\hline
+        Notes                   & The statistics will include how many single tickets were used and how often toll tags were used, for each type of vehicle. \\\hline
+        
+    \end{tabular}
+    \caption{Detailed use case diagram - Show report}
+    \label{tab:UC4}
+\end{table}

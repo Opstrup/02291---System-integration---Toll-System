@@ -1,0 +1,52 @@
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[urlcolor=blue,colorlinks=true,linkcolor=black,citecolor=black]{hyperref} %Farbe der Links in blau
+% for code https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage[toc,page]{appendix}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{lipsum}                     
+\usepackage{xargs}  
+
+\usepackage[pdftex,dvipsnames]{xcolor} 
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{geometry}
+\usepackage{eurosym}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{longtable}
+
+\newcommandx{\addref}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+
+%Side størrelse
+\voffset = -30pt
+\textheight = 650pt
+\oddsidemargin = 11pt
+\textwidth = 430pt
+
+\usepackage{array}
+\usepackage{multirow}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{45}{1em}}}% no optional argument here, please!

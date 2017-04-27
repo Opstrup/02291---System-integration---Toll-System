@@ -1,0 +1,34 @@
+\subsection{Acceptance test - Show report}
+
+\textbf{Usecase "Show report"success scenario.}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{ActionFixture}   & & \\\hline
+        start                    & station client & \\\hline
+        enter                    & start date     & 06/01/17\\\hline
+        enter                    & end date       & 06/08/17\\\hline
+        press                    & request report & \\\hline
+        check                    & error message  & none \\\hline
+    \end{tabular}
+    \caption{Success scenario}
+\end{table}
+
+\textbf{First alternative scenario: Not all the information is filled out}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{ActionFixture}   & & \\\hline
+        start                    & station client & \\\hline
+        enter                    & start date     & 06/01/17\\\hline
+        enter                    & end date       & \\\hline
+        press                    & request report & \\\hline
+        check                    & error message  & no end date has been entered \\\hline
+    \end{tabular}
+    \caption{Alternative scenario}
+\end{table}
+

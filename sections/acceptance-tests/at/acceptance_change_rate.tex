@@ -1,0 +1,35 @@
+\subsection{Acceptance test - Change Rate}
+Change rate tests, test if the enterprise manager is able to rate for the ticket price.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{Action Fixture} &                                                               &       \\\hline
+        Start                   & Enterprise manager is logged in                               & true  \\\hline
+        Enter                   & Enterprise manager navigates to the change rate section       &       \\\hline
+        Check                   & New ticket price                                              & 80    \\\hline
+        Press                   & Enterprise manager selects to change the ticket price         &       \\\hline
+        Enter                   & Enterprise manager inputs new ticket price                    & 100   \\\hline
+        Press                   & Enterprise manager updates ticket price                       & true  \\\hline
+        Check                   & New ticket price                                              & 100   \\\hline
+    \end{tabular}
+    \caption{Fit test for Change Rate}
+\end{table}
+
+\subsubsection{Alternative Scenario - Invalid price for ticket}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{Action Fixture} &                                                               &       \\\hline
+        Start                   & Enterprise manager is logged in                               & true  \\\hline
+        Enter                   & Enterprise manager navigates to the change rate section       &       \\\hline
+        Check                   & New ticket price                                              & 80    \\\hline
+        Enter                   & Enterprise manager selects to change the ticket price         &       \\\hline
+        Press                   & Enterprise manager inputs new ticket price                    & -100  \\\hline
+        Press                   & Enterprise manager updates ticket price                       & false \\\hline
+        Check                   & Error message                                                 & Invalid ticket price \\\hline
+    \end{tabular}
+    \caption{Fit test for Change Rate}
+\end{table}

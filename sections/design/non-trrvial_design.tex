@@ -1,0 +1,19 @@
+\chapter{Design}
+\section{Non-Trivial Design Decisions}
+
+This subsection describes non-trivial design decisions and any assumptions made for the design of the system. The subsection is divided into three different sections for each major design decision, using the following format:
+
+\begin{itemize}
+    \item The challenge in the design
+    \item Alternatives to the chosen design
+    \item Why the selected solution
+\end{itemize}
+
+\subsubsection*{Challenge in the design}
+When designing an online multiplayer game some challenges with keeping the game world in sync on all the clients arises. The game servers responsibility is to keep this shared game world state, due to this design each client (phone) has to request the game world state which can be very computational hard if the game world is very big. 
+
+\subsubsection*{Alternatives}
+One solution to the shared game world state could be to create a game controller class on the client (phone) which stores all information about the game world and which syncs with the game server, when changes happens. This doesn't solve the computational problem though.
+
+\subsubsection*{The selected solution}
+To keep the design simple and to overcome computational problems, each client (phone) only stores a single room in memory at a time.

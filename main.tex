@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[all]{nowidow}
+\usepackage{preamble}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{minted}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{changepage}
+
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+\titlespacing*{\chapter}{0pt}{0.7\baselineskip}{0.7\baselineskip}
+
+\graphicspath{ {figures/} }
+\newcommand\note[1]{\textcolor{red}{#1}}
+\newcommand\JSONnumbervaluestyle{\color{blue}}
+\newcommand\JSONstringvaluestyle{\color{red}}
+% switch used as state variable
+\newif\ifcolonfoundonthisline
+
+\makeatletter
+
+\lstdefinestyle{json}
+{
+  showstringspaces    = false,
+  keywords            = {false,true},
+  alsoletter          = 0123456789.,
+  morestring          = [s]{"}{"},
+  stringstyle         = \ifcolonfoundonthisline\JSONstringvaluestyle\fi,
+  MoreSelectCharTable =%
+    \lst@DefSaveDef{`:}\colon@json{\processColon@json},
+  basicstyle          = \ttfamily,
+  keywordstyle        = \ttfamily\bfseries,
+}
+
+% flip the switch if a colon is found in Pmode
+\newcommand\processColon@json{%
+  \colon@json%
+  \ifnum\lst@mode=\lst@Pmode%
+    \global\colonfoundonthislinetrue%
+  \fi
+}
+
+\lst@AddToHook{Output}{%
+  \ifcolonfoundonthisline%
+    \ifnum\lst@mode=\lst@Pmode%
+      \def\lst@thestyle{\JSONnumbervaluestyle}%
+    \fi
+  \fi
+  %override by keyword style if a keyword is detected!
+  \lsthk@DetectKeywords% 
+}
+
+% reset the switch at the end of line
+\lst@AddToHook{EOL}%
+  {\global\colonfoundonthislinefalse}
+
+%%%% Fancy Chapter %%%%
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatother
+\begin{document}
+% No indent in each paragraph
+\setlength{\parindent}{0em}  
+\setlength{\parskip}{0.5em}
+\input{frontpage}
+
+\newpage
+\tableofcontents
+\pagenumbering{gobble}
+\newpage
+
+\include{sections/introduction}
+
+\include{sections/requirements/domain_analysis}
+\include{sections/requirements/functional_requirements}
+\include{sections/requirements/non_functional_requirements}
+
+\include{sections/acceptance-tests/acceptance_test}
+
+\include{sections/design/non-trrvial_design}
+\include{sections/design/component_design}
+\include{sections/design/detailed_class_design}
+\include{sections/design/behaviour_design}
+
+\include{sections/validation/use_case_realisation}
+
+\include{sections/conclusion}
+
+\include{notes}
+
+\end{document}

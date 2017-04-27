@@ -1,0 +1,36 @@
+\subsection{Acceptance test - Check out with ticket}
+Check out with a single ticket.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{ActionFixture}  &                       & \\\hline
+        Check                   & The barrier is down   & true  \\\hline
+        Check                   & Ticket is valid       & true  \\\hline
+        Check                   & The barrier opens     & true  \\\hline
+        Check                   & Car goes through      & true \\\hline
+        Check                   & The barrier closes    & true \\\hline
+       
+    \end{tabular}
+    \caption{Fit test for Pick up object}
+\end{table}
+
+First alternative scenario. The ticket is not valid.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l |}
+        \hline
+        \textbf{ActionFixture}  &                           & \\\hline
+        Check                   & The barrier is down       & true  \\\hline
+        Check                   & Ticket is valid           & false  \\\hline
+        Enter                   & Reason for invalidation   & Slept at highway hotel  \\\hline
+        Press                   & Open gate button          & \\\hline
+        Check                   & The barrier opens         & true  \\\hline
+        Check                   & Car goes through          & true \\\hline
+        Check                   & The barrier closes        & true \\\hline
+       
+    \end{tabular}
+    \caption{Fit test for Pick up object}
+\end{table}

@@ -1,0 +1,56 @@
+\subsubsection*{Check in with at cashier}
+
+\begin{table}[H]
+    \begin{tabular}{| p{3cm}| p{11.5cm}|}
+        \hline
+        
+        Description             & The customer wants to check in on the toll motorway. \\\hline
+        Actors                  & Customer, Cashier \\\hline
+        Pre conditions          & The barrier is down. \\\hline
+        
+        Main Scenarios	        &
+         
+        \renewcommand{\labelenumi}{\arabic{enumi}.}
+        \renewcommand{\labelenumii}{\Roman{enumii}:}
+        
+        \begin{enumerate}[topsep=0.0cm, leftmargin=0.5cm]
+            \item The customer drives up to the cashier lane.
+            \item The cashier chooses the sell ticket option in the system.
+            \item The cashier chooses the vehicle type on the lane computer.
+            \begin{enumerate}[partopsep=4cm, topsep=0cm, leftmargin=1cm]
+                \item Wrong vehicle type.
+        	\end{enumerate}
+            \item The cashier chooses credit card or cash as payment type.
+            \item The customer pays for the ticket.
+            \begin{enumerate}[partopsep=4cm, topsep=0cm, leftmargin=1cm]
+                \item The customers is not able to pay.
+        	\end{enumerate}
+        	\item The cashier prints the ticket.
+        	\item The barrier opens.
+        	\item The customer drives onto the toll road.
+        	\item The barrier closes.
+        \end{enumerate} \\\hline	
+        
+        Alternative Scenarios     & 
+        
+        \renewcommand{\labelenumi}{\Roman{enumi}:}
+        \renewcommand{\labelenumii}{\alph{enumii})}
+        
+        \begin{enumerate}[a:, topsep=0.0cm,leftmargin=0.5cm]
+            \item Wrong vehicle type.
+        	\begin{itemize}[topsep=0cm, leftmargin=1cm]
+        	    \item The cashier re-selects the vehicle type.
+        	\end{itemize}
+        	\item The customers is not able to pay.
+        	\begin{itemize}[topsep=0cm, leftmargin=1cm]
+        	    \item The customer gets a fine.
+        	\end{itemize}
+        \end{enumerate} \\\hline
+        
+        Post conditions         & The customer is checked-in on the toll road, with the correct vehicle type. Which is valid for 24 hours. \\\hline
+        Notes                   & The ticket is only valid for one trip and only max 24 hours. The valid vehicle types is motorbike, car or truck. \\\hline
+        
+    \end{tabular}
+    \caption{Detailed use case diagram - Check in with payment}
+    \label{tab:UC1}
+\end{table}
